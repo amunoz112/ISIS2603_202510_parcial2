@@ -1,26 +1,34 @@
 <div class="container">
     <h1 class="mt-4">Candidatos a Papa - 2025</h1>
 
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr style="--bs-table-bg: #C41E3A; --bs-table-color: white;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Pais Origen</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Vertiente Religiosa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
-                <td>{{ candidato.nombre }}</td>
-                <td><img [src]="candidato.foto" alt="{{ candidato.nombre }}" style="width: 50px; height: auto;"></td>
-                <td>{{ candidato.pais_origen }}</td>
-                <td>{{ candidato.edad }} años</td>
-                <td>{{ candidato.vertiente_religiosa }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="row">
+    <div class="col mb-2" *ngFor="let candidato of candidatos" (click)="seleccionarCandidato(candidato)">
+      <div class="card p-2" style="width: 25rem;" >
+        <div class="card-body">
+        <div style="width: 50%; display: inline-block;">
+                         <img
+          class="card-img-top"
+          src="{{ candidato.foto }}"
+          alt="{{ candidato.nombre }}"
+          style="width: 80;"
+        />
+                </div>
 
+                <div style="width: 50%; display: inline-block;">
+                      <h5 class="card-title">{{ candidato.nombre }}</h5>
+            <p class="card-text">{{ candidato.vertiente_religiosa }}</p>
+
+        <p class="card-text">Edad: {{ candidato.edad }}</p>
+        <p class="card-text">País: {{ candidato.pais_origen }}</p>
+                    </div>
+                </div>
+
+   
+
+      </div>
+    </div>
+  </div>
+    <p> El nuevo Papa será: candidatoSeleccionado</p>
     <app-candidatos-detail *ngIf="candidatoSeleccionado" [candidato]="candidatoSeleccionado"></app-candidatos-detail>
 </div>
+

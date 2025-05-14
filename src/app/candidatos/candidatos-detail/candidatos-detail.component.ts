@@ -10,5 +10,6 @@ export class CandidatosDetailComponent implements OnInit {
   @Input() candidato: any;
 
   constructor() {}
+
   ngOnInit() {}
 }
